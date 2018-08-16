@@ -8,14 +8,17 @@ const Users = (props) => (
             props._isUsersLoading ?
                 'loading'
                 :
-                props._users.results.map(el =>
-                    <div>
-                    <img src={el.picture.medium}/>
-                    <div>
-                    {el.name.first}
-                    </div>
-                    {el.name.last}
-                    </div>)
+                props._users ?
+                    props._users.results.map(el =>
+                        <div>
+                            <img src={el.picture.medium} />
+                            <div>
+                                {el.name.first}
+                            </div>
+                            {el.name.last}
+                        </div>)
+                    :
+                    'no users'
         }
     </div>
 )
